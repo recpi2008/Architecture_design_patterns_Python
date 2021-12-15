@@ -1,5 +1,6 @@
 from quopri import decodestring
-from requests import GetRequests, PostRequests
+from myrequests import GetRequests, PostRequests
+import json
 
 
 
@@ -29,11 +30,14 @@ class Myframework:
         if method == 'POST':
             data = PostRequests().get_request_params(environ)
             request['data'] = data
-            print(f'Post запрос: {Myframework.decode_value(data)}')
+            new_decode = Myframework.decode_value(data)
+            print(f'Post запрос: {new_decode}')
+            print(f'Данные сохранены в файл {Myframework.save_date(new_decode, method)}')
         if method == 'GET':
             gets_params = GetRequests().get_request_params(environ)
             request['gets_params'] = gets_params
             print(f'Параметры GET: {gets_params}')
+            print(f'Данные сохранены в файл {Myframework.save_date(gets_params, method)}')
 
 
         if path in self.routes_list:
@@ -56,3 +60,9 @@ class Myframework:
             val_decode_str = decodestring(val).decode('UTF-8')
             new_data[k] = val_decode_str
         return new_data
+
+    @staticmethod
+    def save_date(data, name):
+        with open(f'{name}.json', 'w', encoding='UTF-8') as f_n:
+            f_n.write(json.dumps(data))
+            return f'{name}.json'

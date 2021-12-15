@@ -1,407 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Контакты</title>
-    <style>
-                /* general */
-body {
-    background-color: #f8f8f8;
-
-}
-
-.container {
-    margin: 0 auto;
-}
-
-.header {
-    height: 150px;
-    background-image: url(https://assets.codepen.io/13471/sparkles.gif), url(https://assets.codepen.io/13471/holo.png), linear-gradient(
-125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    margin-top: 15px;
-    border: 15px solid #800080;
-    position: relative;
-}
-
-.logo {
-    width: 150px;
-    height: 150px;
-    background-image: url(http://picasso-picasso.ru/wp-content/uploads/40r.jpg);
-    background-size: 160px 160px;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    float: left;
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    border: 15px solid #800080;
-}
-
-.menu {
-    text-align: right;
-}
-
-.menu li {
-    list-style-type: none;
-    width: 250px;
-    height: 40px;
-    border: 3px solid #00BFFF;
-    text-align: center;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    display: inline-block;
-    margin-right: 30px;
-    margin-top: 30px;
-    background-color: #800080;
-}
-
-.menu li a:hover {
-    color: red;
-}
-
-.menu li a:hover:after {
-    content: " >";
-    color: red;
-}
-
-.menu li a:active {
-    color: aqua;
-}
-
-.menu li a:active:after {
-    content: " >";
-    color: aqua;
-}
-
-.menu li a {
-    color: #FFD700;
-    font-size: 20px;
-    font-style: oblique;
-    font-weight: bold;
-    font-family: Segoe Script;
-    text-decoration: none;
-}
-
-
-
-.text:first-letter {
-    font-size: 30px;
-    color: red
-}
-
-.text {
-    color: #484343;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: left;
-}
-
-
-/* main page */
-.center-pic {
-    text-align: center;
-}
-
-img[alt="photo"] {
-    border: 80px solid;
-    border-image: url(img/%D0%A0%D0%B0%D0%BC%D0%B0%20%D1%81%D1%82%D0%B8%D0%BB%D1%8C%204.jpg) 15% stretch;
-}
-
-
-/* commoncatalog */
-img[alt="picture"] {
-    border: 60px solid #f8f8f8;
-    border-image: url(img/%D0%A0%D0%B0%D0%BC%D0%B0%20%D1%81%D1%82%D0%B8%D0%BB%D1%8C5.jpg) 14% round;
-
-}
-
-img[alt="picture"]:hover {
-    border-image: none;
-
-}
-
-.short-description {
-    color: #9932CC;
-    font-size: 15px;
-    font-style: oblique;
-    font-family: ModBolda_Alterna;
-    text-align: center;
-}
-
-.main-heading {
-    color: #800000;
-    font-size: 40px;
-    font-style: oblique;
-    text-align: center;
-    font-family: Misto;
-}
-
-.heading {
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #FFE4E1;
-    font-family: Segoe Script;
-}
-
-.name-picture {
-    color: #707070;
-    font-size: 30px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 16px;
-    text-align: center;
-}
-
-.name-picture:first-letter {
-    font-size: 45px;
-    color: #00BFFF;
-    font-family: Macarena;
-}
-
-.name-picture:after {
-    content: " new";
-    color: red;
-   font-size: 25px;
-}
-
-.name-author {
-    color: #707070;
-    font-size: 30px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 16px;
-    text-align: center;
-}
-
-.name-author:first-letter {
-    font-size: 45px;
-    color: #00BFFF;
-    font-family: Macarena;
-}
-
-.accommodation {
-    float: left;
-    margin-left: 60px;
-}
-
-/* detail page */
-.center-pic {
-    float: left;
-}
-
-.alldescription {
-    overflow: hidden;
-}
-
-.list li {
-    list-style: none;
-    list-style-image: url(img/brush-png-image-20.png);
-    font-family: Segoe Script;
-
-}
-
-.specifications {
-    border: 1px solid #000;
-    width: 600px;
-    height: 100px;
-    border-collapse: collapse;
-}
-
-.specifications td {
-    border: 1px solid black;
-}
-
-.div-buttom {
-    margin-left: 150px;
-}
-
-[type="button"] {
-
-    width: 150px;
-    height: 30px;
-    border: 3px solid #800080;
-    background-color: aqua;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-}
-
-[type="button"]:hover {
-    color: red;
-}
-
-.[type="button"]:active {
-    color: green;
-}
-
-.dop-description {
-    clear: both;
-}
-/* big detail page */
-
-/* contact */
-.contact-general {
-    width: 500px;
-    border: 3px solid #000;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    margin: 0 auto;
-    background-color: aqua;
-}
-.insertion {
-    font-size: 15px;
-    font-weight: bolder;
-    font-style: italic;
-    line-height: 15px;
-    text-transform: capitalize;
-}
-
-input:focus {
-    font-size: 15px;
-    color: red;
-    background-color:beige;
-}
-
-[type="submit"]:hover {
-    color: red;
-}
-
-[type="submit"]:active {
-    color: green;
-}
-
-[type="reset"]:hover {
-    color: red;
-}
-
-[type="reset"]:active {
-    color: green;
-}
-
-[type="text"] {
-    width: 205px;
-}
-
-/* footer */
-.footer {
-    height: 50px;
-    text-align: right;
-    background-image: url(https://assets.codepen.io/13471/sparkles.gif), url(https://assets.codepen.io/13471/holo.png), linear-gradient(
-125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border: 15px solid #800080;
-    clear: both;
-}
-
-.footer p {
-    padding-right: 30px;
-}
-
-
-.pic {
-    height: 500px;
-    width:350px;
-     background-image: url(http://picasso-picasso.ru/wp-content/uploads/40r.jpg);
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border: 5px solid orange;
-      }
-
-    </style>
-</head>
-
-<body>
+{% block body %}
+    <body>
     <div class="container">
-        <div class="header">
-           <div class="logo"></div>
-            <ul class="menu">
-                <li><a href="/">Главная страница</a></li>
-                <li><a href="/contact/">Контакт</a></li>
-            </ul>
-        </div>
+        {% include 'includes/inc_menu.html' %}
         <div class="content">
             <h1 class="main-heading">Контакты</h1>
             <h3 class="heading">Свяжитесь с&nbsp;нами:</h3>
             <div class="contact-general">
                 <form action="" method="post">Ваше имя:
-               <input class="insertion" type="text" placeholder="Введите имя" name="name" id="name"> <br>
-                <br>Ваш телефон:
-                <input class="insertion" type="text" placeholder="Введите номер телефона" name="phone" id="phone"> <br>
-                <br>Email:
-                <input class="insertion" type="text" placeholder="Введите Email" name="email" id="email"> <br>
-                <br>Дата рождения:
-                <input class="insertion" type="text" placeholder="Введите дату рождения" name="bday" id="ebday"> <br>
-                <br>Ваш пол:
-                <br> М
-                <input type="radio" name="pol" checked>
-                Ж
-                <input type="radio" name="pol"> <br>
-                <br>Ваши предпочтения в&nbsp;живописи:
-                <br> Портрет
-                <input type="checkbox">
-                <br> Пейзаж
-                <input type="checkbox">
-                <br> Исторический
-                <input type="checkbox">
-                <br> Батальный
-                <input type="checkbox">
-                <br> Натюрморт
-                <input type="checkbox">
-                <br> Бытовой
-                <input type="checkbox">
-                <br> Мифологический
-                <input type="checkbox">
-                <br> Анималистический
-                <input type="checkbox">
-                <br> Религиозный
-                <input type="checkbox">
-                <br> Архитектурный
-                <input type="checkbox">
-                <br> Другое
-                <input type="checkbox">
-                <br> <br>
-                Тема сообщения:
-                <br> <textarea class="insertion" name="topicmes" id="topicmes" cols="50" rows="1" placeholder="Введите тему сообщения"></textarea> <br> <br>
-                Текст сообщения:
-                <br> <textarea class="insertion" name="message" id="message" cols="50" rows="10" placeholder="Введите сообщение..."></textarea> <br> <br>
-                <input type="submit" value="Зарегистрироваться">
-                <input type="reset" value="Сброс">
-            </form></div>
+                    <input class="insertion" type="text" placeholder="Введите имя" name="name" id="name"> <br>
+                    <br>Ваш телефон:
+                    <input class="insertion" type="text" placeholder="Введите номер телефона" name="phone" id="phone">
+                    <br>
+                    <br>Email:
+                    <input class="insertion" type="text" placeholder="Введите Email" name="email" id="email"> <br>
+                    <br>Дата рождения:
+                    <input class="insertion" type="text" placeholder="Введите дату рождения" name="bday" id="ebday">
+                    <br>
+                    <br>Ваш пол:
+                    <br> М
+                    <input type="radio" name="pol" checked>
+                    Ж
+                    <input type="radio" name="pol"> <br>
+                    <br>Ваши предпочтения в&nbsp;живописи:
+                    <br> Портрет
+                    <input type="checkbox">
+                    <br> Пейзаж
+                    <input type="checkbox">
+                    <br> Исторический
+                    <input type="checkbox">
+                    <br> Батальный
+                    <input type="checkbox">
+                    <br> Натюрморт
+                    <input type="checkbox">
+                    <br> Бытовой
+                    <input type="checkbox">
+                    <br> Мифологический
+                    <input type="checkbox">
+                    <br> Анималистический
+                    <input type="checkbox">
+                    <br> Религиозный
+                    <input type="checkbox">
+                    <br> Архитектурный
+                    <input type="checkbox">
+                    <br> Другое
+                    <input type="checkbox">
+                    <br> <br>
+                    Тема сообщения:
+                    <br> <textarea class="insertion" name="topicmes" id="topicmes" cols="50" rows="1"
+                                   placeholder="Введите тему сообщения"></textarea> <br> <br>
+                    Текст сообщения:
+                    <br> <textarea class="insertion" name="message" id="message" cols="50" rows="10"
+                                   placeholder="Введите сообщение..."></textarea> <br> <br>
+                    <input type="submit" value="Зарегистрироваться">
+                    <input type="reset" value="Сброс">
+                </form>
+            </div>
             <h2 class="heading">Наш адрес:</h2>
             <p>Адрес: ES</p>
             <h2 class="heading">Контакты для связи:</h2>
             <a href="tel:+3">+3456231145;</a>
             <p>Email: ivaneleskin2019@gmail.com</p>
             <h2 class="heading">Наши координаты:</h2>
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acbe58ad43bdc6f243c12764baf8811bcd70a60f6f594205a18fb9bd4d449070c&amp;width=1800&amp;height=374&amp;lang=ru_RU&amp;scroll=true"></script>
+            <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acbe58ad43bdc6f243c12764baf8811bcd70a60f6f594205a18fb9bd4d449070c&amp;width=1800&amp;height=374&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
-        
-        
-        <div class="footer">
-            <p>&copy;Все права защищены</p>
-        </div>
+
+
+        {% include 'includes/inc_footer.html' %}
     </div>
 
-</body></html>
+    </body>
+{% endblock %}
