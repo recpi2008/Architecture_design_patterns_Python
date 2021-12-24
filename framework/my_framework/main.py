@@ -35,7 +35,7 @@ class Myframework:
             print(f'Данные сохранены в файл {Myframework.save_date(new_decode, method)}')
         if method == 'GET':
             gets_params = GetRequests().get_request_params(environ)
-            request['gets_params'] = gets_params
+            request['request_params'] = gets_params
             print(f'Параметры GET: {gets_params}')
             print(f'Данные сохранены в файл {Myframework.save_date(gets_params, method)}')
 

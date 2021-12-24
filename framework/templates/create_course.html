@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <body>
+    <div class="container">
+        {% include 'includes/inc_menu.html' %}
+        <div class="content">
+            <div>
+                <ul class="inbuttom">
+                    <li><a href="/courses-list/?id={{ id }}">назад</a></li>
+                </ul>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div>
+                <h1>Создание курса для категории "{{ name }}"</h1>
+                <div class="contact-general">
+                    <form method="post">
+                        <input type="text" name="name" placeholder="Название">
+                        <button type="submit">Сохранить и вернуться на главную</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        {% include 'includes/inc_footer.html' %}
+    </div>
+
+    </body>
+{% endblock %}

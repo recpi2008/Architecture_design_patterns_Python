@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <body>
+    <div class="container">
+        {% include 'includes/inc_menu.html' %}
+        <div class="content">
+         <h1>Список существующих категорий</h1>
+	<div>
+    <div>
+        <ul class="inbuttom">
+            <li><a href="/create-category/">Создать новую категорию</a></li>
+        </ul>
+
+	</div>
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span>Количество курсов: {{item.course_count()}}</span>
+			<a href="/courses-list/?id={{item.id}}">Показать курсы</a>
+        </li>
+        {% endfor %}
+	</div>
+
+        </div>
+        {% include 'includes/inc_footer.html' %}
+    </div>
+
+    </body>
+
+
+{% endblock %}
